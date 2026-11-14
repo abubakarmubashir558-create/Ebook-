@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://miravanceai.netlify.app/sitemap.xml
+Sitemap: https://abubakarmubashir558-create.github.io/Ebook-/sitemap.xml
