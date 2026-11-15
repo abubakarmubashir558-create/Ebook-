@@ -52,6 +52,6 @@
 </main>
 <footer class="footer"><div class="container footer-row"><span>© 2026 Ebook. All rights reserved.</span><div class="footer-links"><a href="#library">Browse</a><a href="#bundle">Bundle</a><a href="#faq">FAQs</a></div></div></footer>
 <script src="store.js"></script><script>
-document.querySelectorAll("[data-topic-filter]").forEach(link=>link.addEventListener("click",()=>{const f=link.dataset.topicFilter;document.querySelectorAll("[data-filter]").forEach(b=>{b.classList.toggle("active",b.dataset.filter===f)});document.querySelectorAll("[data-book-card]").forEach(card=>{card.hidden=f!=="all"&&card.dataset.category!==f})}));
+document.querySelectorAll("[data-topic-filter]").forEach(link=>link.addEventListener("click",()=>{const filter=link.dataset.topicFilter;const control=document.querySelector('[data-filter="'+filter+'"]');if(control)control.click()}));
 </script>
 </body></html>
