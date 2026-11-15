@@ -1,4 +1,4 @@
-/* Store search and category filters. Add individual checkout URLs only when they are ready. */
+/* Ebook store search and filters */
 const GUMROAD_LINKS = {
   "ai-money-machine": "",
   "gut-reset": "",
@@ -14,33 +14,39 @@ document.addEventListener("DOMContentLoaded", () => {
   const status = document.querySelector("[data-search-status]");
   const count = document.querySelector("[data-results-count]");
   let activeFilter = "all";
-  const isHome = /(?:^|\/)index\.html$/.test(location.pathname) || location.pathname.endsWith("/Ebook-/") || location.pathname.endsWith("/");
+  const isHome = /(?:^|\/)index\.html$/.test(location.pathname) ||
+    location.pathname.endsWith("/Ebook-/") || location.pathname.endsWith("/");
+
+  const normalize = value => (value || "").toString().toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9\s-]/g, " ").replace(/\s+/g, " ").trim();
 
   function applyFilters() {
-    const term = (search?.value || "").trim().toLowerCase().replace(/\s+/g, " ");
-    let visible = 0;
-    const visibleTitles = new Set();
+    const term = normalize(search?.value);
+    const words = term.split(" ").filter(Boolean);
+    const titles = new Set();
+
     cards.forEach(card => {
-      const searchable = [
-        card.dataset.search || "",
-        card.dataset.category || "",
-        card.innerText || "",
-        card.querySelector("h3")?.innerText || ""
-      ].join(" ").toLowerCase();
-      const matchesTerm = !term || searchable.includes(term) || term.split(" ").every(word => searchable.includes(word));
+      const searchable = normalize([
+        card.dataset.search, card.dataset.category, card.innerText,
+        card.querySelector("h3")?.innerText
+      ].join(" "));
+      const matchesTerm = !words.length || words.every(word =>
+        searchable.split(" ").some(token => token.startsWith(word) || token.includes(word))
+      );
       const matchesFilter = activeFilter === "all" || card.dataset.category === activeFilter;
       const show = matchesTerm && matchesFilter;
       card.hidden = !show;
-      if (show) {
-        visible++;
-        const link = card.querySelector("a[href]");
-        visibleTitles.add(link?.getAttribute("href") || card.innerText);
-      }
+      if (show) titles.add(card.querySelector("a[href]")?.getAttribute("href") || card.innerText);
     });
+
+    const n = titles.size;
     if (status) status.textContent = term
-      ? (visibleTitles.size ? "Showing " + visibleTitles.size + " matching ebook" + (visibleTitles.size === 1 ? "." : "s.") : "No matching ebooks. Try another title or topic.")
-      : "Showing all " + visibleTitles.size + " ebooks.";
-    if (count) count.innerHTML = "<strong>" + visibleTitles.size + " matching guide" + (visibleTitles.size === 1 ? "" : "s") + "</strong> · PDF format";
+      ? (n ? "Found " + n + " matching ebook" + (n === 1 ? "." : "s.") :
+        "No matching ebooks. Try a different title or keyword.")
+      : "Showing all " + n + " ebooks.";
+    if (count) count.textContent = n + " matching " + (n === 1 ? "guide" : "guides") + " · PDF format";
+    return n;
   }
 
   if (search) {
@@ -51,23 +57,35 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   searchForm?.addEventListener("submit", event => {
-    const term = (search?.value || "").trim();
+    event.preventDefault();
+    applyFilters();
     if (isHome) {
-      event.preventDefault();
-      applyFilters();
-      document.querySelector("#library")?.scrollIntoView({ behavior: "smooth" });
-    } else if (term) {
-      event.preventDefault();
-      location.href = "index.html?search=" + encodeURIComponent(term) + "#library";
+      document.querySelector("#library")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      const term = search?.value.trim();
+      const url = new URL(location.href);
+      if (term) url.searchParams.set("search", term);
+      else url.searchParams.delete("search");
+      history.replaceState({}, "", url);
+    } else if (search?.value.trim()) {
+      location.href = "index.html?search=" + encodeURIComponent(search.value.trim()) + "#library";
     }
   });
 
   filterButtons.forEach(button => button.addEventListener("click", event => {
     event.preventDefault();
-    activeFilter = button.dataset.filter;
+    activeFilter = button.dataset.filter || "all";
     filterButtons.forEach(item => item.classList.toggle("active", item === button));
     applyFilters();
+    document.querySelector("#library")?.scrollIntoView({ behavior: "smooth", block: "start" });
   }));
+
+  document.querySelectorAll("[data-topic-filter]").forEach(link => {
+    link.addEventListener("click", () => {
+      const filter = link.dataset.topicFilter || "all";
+      const control = document.querySelector('[data-filter="' + filter + '"]');
+      if (control) control.click();
+    });
+  });
 
   const productId = document.body.dataset.product;
   const buyButton = document.querySelector("[data-buy-button]");
@@ -80,5 +98,6 @@ document.addEventListener("DOMContentLoaded", () => {
     buyButton.target = "_blank";
     buyButton.rel = "noopener noreferrer";
   }
+
   applyFilters();
 });
