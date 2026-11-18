@@ -13,11 +13,11 @@ const SUPPORT_EMAIL = "Ebookbyali@gmail.com";
 const CART_KEY = "ebook-cart-v1";
 
 const PRODUCTS = {
-  "ai-money-machine": { title: "AI Money Machine", price: 6.99, list: 15, cv: "c-ai" },
-  "gut-reset": { title: "Gut Reset", price: 6.99, list: 15, cv: "c-gut" },
-  "gen-z-wealth-code": { title: "The Gen Z Wealth Code", price: 6.99, list: 15, cv: "c-genz" },
-  "sleep-like-a-ceo": { title: "Sleep Like a CEO", price: 6.99, list: 15, cv: "c-sleep" },
-  "bundle": { title: "Complete bundle", price: 22.99, list: 60, cv: "", includes: ["ai-money-machine", "gut-reset", "gen-z-wealth-code", "sleep-like-a-ceo"] }
+  "ai-money-machine": { title: "AI Money Machine", price: 5.99, list: 15, cv: "c-ai" },
+  "gut-reset": { title: "Gut Reset", price: 5.99, list: 15, cv: "c-gut" },
+  "gen-z-wealth-code": { title: "The Gen Z Wealth Code", price: 5.99, list: 15, cv: "c-genz" },
+  "sleep-like-a-ceo": { title: "Sleep Like a CEO", price: 5.99, list: 15, cv: "c-sleep" },
+  "bundle": { title: "Complete bundle", price: 15.99, list: 60, cv: "", includes: ["ai-money-machine", "gut-reset", "gen-z-wealth-code", "sleep-like-a-ceo"] }
 };
 const BOOK_SLUGS = PRODUCTS.bundle.includes;
 
@@ -297,7 +297,7 @@ function setupSuggestions() {
     } else {
       list.innerHTML = hits.map((d, i) => '<li role="option"><a href="' + d.slug + '.html" data-i="' + i + '">' +
         '<span class="sg-thumb"><img src="covers/' + d.slug + '.jpg" alt="" width="40" height="60"></span>' +
-        '<span class="sg-text"><b>' + d.title + '</b><small>' + d.catLabel + ' · $6.99</small></span></a></li>').join("");
+        '<span class="sg-text"><b>' + d.title + '</b><small>' + d.catLabel + ' · $5.99</small></span></a></li>').join("");
     }
     list.hidden = false; active = -1;
   }
