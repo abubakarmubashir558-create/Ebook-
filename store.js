@@ -17,7 +17,7 @@ const PRODUCTS = {
   "gut-reset": { title: "Gut Reset", price: 5.99, list: 15, cv: "c-gut" },
   "gen-z-wealth-code": { title: "The Gen Z Wealth Code", price: 5.99, list: 15, cv: "c-genz" },
   "sleep-like-a-ceo": { title: "Sleep Like a CEO", price: 5.99, list: 15, cv: "c-sleep" },
-  "bundle": { title: "Complete bundle", price: 15.99, list: 60, cv: "", includes: ["ai-money-machine", "gut-reset", "gen-z-wealth-code", "sleep-like-a-ceo"] }
+  "bundle": { title: "Complete bundle", price: 15.99, list: 20, cv: "", includes: ["ai-money-machine", "gut-reset", "gen-z-wealth-code", "sleep-like-a-ceo"] }
 };
 const BOOK_SLUGS = PRODUCTS.bundle.includes;
 
