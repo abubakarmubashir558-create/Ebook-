@@ -203,7 +203,7 @@ h1,h2,h3{font-family:var(--display);line-height:1.12;margin:0;text-wrap:balance}
 
 /* Footer */
 .foot{background:#fff;border-top:1px solid var(--line);margin-top:56px;padding-block:32px calc(24px + env(safe-area-inset-bottom,0px))}
-.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
 .foot p{margin:8px 0 0;color:var(--muted);font-size:14px;max-width:360px}
 .foot ul{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:4px;color:var(--muted);font-size:14px}
 .foot ul a{display:inline-block;padding:4px 0}
@@ -444,3 +444,24 @@ h1,h2,h3{font-family:var(--display);line-height:1.12;margin:0;text-wrap:balance}
   .faq p{padding:0 16px 16px 16px}
   .faq summary{padding:12px 12px}
 }
+
+
+/* Policy pages */
+.policy{max-width:780px;padding-bottom:48px}
+.crumbs{margin-top:24px;font-size:13px;color:var(--muted)}
+.crumbs a{color:var(--brand)}
+.policy .page-title{margin-top:12px;margin-bottom:6px}
+.policy-meta{color:var(--muted);font-size:13px;margin:0 0 16px}
+.policy-intro{font-size:17px;line-height:1.6;margin:0 0 8px}
+.policy section{margin-top:26px;padding-top:20px;border-top:1px solid var(--line)}
+.policy h2{font-size:19px;margin:0 0 8px;letter-spacing:-.01em}
+.policy p,.policy li{line-height:1.65;color:var(--ink)}
+.policy ul{margin:8px 0 0;padding-left:20px}
+.policy li{margin:5px 0}
+.policy a{color:var(--brand);text-decoration:underline;text-underline-offset:2px}
+.policy-end{margin-top:30px;padding:14px 16px;background:#E8F3F5;border-radius:12px;color:var(--ink)}
+.contact-card{display:flex;align-items:center;gap:14px;margin:18px 0 4px;padding:18px;border:1px solid var(--line);border-radius:16px;background:#fff}
+.contact-card svg{width:34px;height:34px;flex:none;padding:7px;border-radius:50%;background:#E8F3F5;stroke:var(--brand);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.contact-card b{display:block;font-size:13px;color:var(--muted);font-weight:500}
+.contact-card a{font-weight:600;overflow-wrap:anywhere}
+@media (max-width:640px){.policy-intro{font-size:16px}.policy h2{font-size:18px}}
