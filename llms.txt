@@ -1,0 +1,22 @@
+# Ebook
+
+> Ebook is a small online store selling four PDF guides on AI tools, money habits, gut health and sleep routines. Each ebook is $5.99; all four are $15.99.
+
+## Ebooks
+- [AI Money Machine](https://abubakarmubashir558-create.github.io/Ebook-/ai-money-machine.html): A practical guide to exploring AI-assisted services, digital tools and your first client-ready workflow.
+- [Gut Reset](https://abubakarmubashir558-create.github.io/Ebook-/gut-reset.html): A 30-day educational guide to the gut microbiome, food choices and everyday wellbeing habits.
+- [The Gen Z Wealth Code](https://abubakarmubashir558-create.github.io/Ebook-/gen-z-wealth-code.html): An introduction to money habits, digital skills and ways to think about building long-term financial capability.
+- [Sleep Like a CEO](https://abubakarmubashir558-create.github.io/Ebook-/sleep-like-a-ceo.html): An educational guide to sleep routines, common disruptors and building a more consistent wind-down.
+
+## Free samples
+- [AI Money Machine sample](https://abubakarmubashir558-create.github.io/Ebook-/sample-ai-money-machine.html): real extracts from the PDF
+- [Gut Reset sample](https://abubakarmubashir558-create.github.io/Ebook-/sample-gut-reset.html): real extracts from the PDF
+- [The Gen Z Wealth Code sample](https://abubakarmubashir558-create.github.io/Ebook-/sample-gen-z-wealth-code.html): real extracts from the PDF
+- [Sleep Like a CEO sample](https://abubakarmubashir558-create.github.io/Ebook-/sample-sleep-like-a-ceo.html): real extracts from the PDF
+
+## Store information
+- [Bundle](https://abubakarmubashir558-create.github.io/Ebook-/bundle.html)
+- [Refund Policy](https://abubakarmubashir558-create.github.io/Ebook-/refund.html)
+- [Terms](https://abubakarmubashir558-create.github.io/Ebook-/terms.html)
+- [Privacy](https://abubakarmubashir558-create.github.io/Ebook-/privacy.html)
+- [Contact](https://abubakarmubashir558-create.github.io/Ebook-/contact.html): Ebookbyali@gmail.com
