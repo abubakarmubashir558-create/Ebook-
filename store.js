@@ -350,6 +350,8 @@ document.addEventListener("DOMContentLoaded", () => {
   renderCart();
 
   document.addEventListener("click", e => {
+    const bd = e.target.closest(".bundle");
+    if (bd && !e.target.closest("a, button")) { const go = $(".text-link", bd); if (go) { location.href = go.href; return; } }
     const add = e.target.closest("[data-add]");
     if (add) { addToCart(add.dataset.add); return; }
     const buy = e.target.closest("[data-buy]");

@@ -523,3 +523,4 @@ h1,h2,h3{font-family:var(--display);line-height:1.12;margin:0;text-wrap:balance}
 .cat-tile h3{margin:6px 0 0;font-weight:800;font-size:22px}.cat-tile p{margin:0;color:#5b6676}
 .cat-tile .stack{padding-left:28px;margin-bottom:6px}
 @media(max-width:800px){.cat-tiles{grid-template-columns:1fr}}
+.bundle{cursor:pointer}.bundle-copy h2 a{color:inherit}.bundle-copy h2 a:hover{color:var(--brand)}
