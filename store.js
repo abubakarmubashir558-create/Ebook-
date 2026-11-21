@@ -31,13 +31,13 @@ const BUNDLES = Object.keys(PRODUCTS).filter(s => PRODUCTS[s].includes);
 
 /* Words people might type. Add more here and search picks them up everywhere. */
 const SEARCH_DATA = [
-  { slug: "ai-money-machine", title: "AI Money Machine", cat: "money", catLabel: "Money & AI",
+  { slug: "ai-money-machine", title: "AI Money Machine", cat: "money", catLabel: "Self Improvement",
     terms: "ai artificial intelligence chatgpt prompts automation tools freelance freelancing side hustle online business make money online income earn earning money digital skills productivity work career free tools passive income" },
-  { slug: "gut-reset", title: "Gut Reset", cat: "health", catLabel: "Health & Wellbeing",
+  { slug: "gut-reset", title: "Gut Reset", cat: "health", catLabel: "Self Improvement",
     terms: "gut health healthy microbiome digestion digestive stomach bloating belly food diet nutrition eating probiotics wellness wellbeing energy mood body fitness healing detox 30 day" },
-  { slug: "gen-z-wealth-code", title: "The Gen Z Wealth Code", cat: "money", catLabel: "Money & AI",
+  { slug: "gen-z-wealth-code", title: "The Gen Z Wealth Code", cat: "money", catLabel: "Self Improvement",
     terms: "gen z wealth money finance financial saving savings investing invest investment budget budgeting income creator economy crypto personal finance young 20s side hustle digital assets brand rich" },
-  { slug: "sleep-like-a-ceo", title: "Sleep Like a CEO", cat: "health", catLabel: "Health & Wellbeing",
+  { slug: "sleep-like-a-ceo", title: "Sleep Like a CEO", cat: "health", catLabel: "Self Improvement",
     terms: "sleep insomnia rest bedtime night routine recovery health healthy wellbeing wellness energy focus performance productivity ceo stress brain wearable habits tired fatigue" },
   { slug: "my-husband-is-lying", title: "My Husband Is Lying", cat: "fiction", catLabel: "Fiction",
     terms: "fiction novel story stories thriller psychological suspense mystery drama romance marriage husband wife couple lying lies liar trilogy series book reading read secrets betrayal revenge love family twist cliffhanger domestic emma jake chloe husband cheating affair second phone first" },
