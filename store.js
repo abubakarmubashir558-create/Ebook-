@@ -7,7 +7,11 @@ const CHECKOUT_LINKS = {
   "gut-reset": "",
   "gen-z-wealth-code": "",
   "sleep-like-a-ceo": "",
-  "bundle": ""
+  "bundle": "",
+  "my-husband-is-lying": "",
+  "my-wife-is-lying": "",
+  "we-were-both-lying": "",
+  "fiction-bundle": ""
 };
 const SUPPORT_EMAIL = "Ebookbyali@gmail.com";
 const CART_KEY = "ebook-cart-v1";
@@ -17,9 +21,13 @@ const PRODUCTS = {
   "gut-reset": { title: "Gut Reset", price: 5.99, list: 15, cv: "c-gut" },
   "gen-z-wealth-code": { title: "The Gen Z Wealth Code", price: 5.99, list: 15, cv: "c-genz" },
   "sleep-like-a-ceo": { title: "Sleep Like a CEO", price: 5.99, list: 15, cv: "c-sleep" },
-  "bundle": { title: "Complete bundle", price: 15.99, list: 20, cv: "", includes: ["ai-money-machine", "gut-reset", "gen-z-wealth-code", "sleep-like-a-ceo"] }
+  "my-husband-is-lying": { title: "My Husband Is Lying", price: 5.99, list: 15, cv: "c-lie1", pages: 23 },
+  "my-wife-is-lying": { title: "My Wife Is Lying", price: 5.99, list: 15, cv: "c-lie2", pages: 18 },
+  "we-were-both-lying": { title: "We Were Both Lying", price: 5.99, list: 15, cv: "c-lie3", pages: 18 },
+  "bundle": { title: "Complete bundle", price: 15.99, list: 20, cv: "", includes: ["ai-money-machine", "gut-reset", "gen-z-wealth-code", "sleep-like-a-ceo"] },
+  "fiction-bundle": { title: "The Lying Trilogy bundle", price: 13.99, list: 17.97, cv: "", includes: ["my-husband-is-lying", "my-wife-is-lying", "we-were-both-lying"] }
 };
-const BOOK_SLUGS = PRODUCTS.bundle.includes;
+const BUNDLES = Object.keys(PRODUCTS).filter(s => PRODUCTS[s].includes);
 
 /* Words people might type. Add more here and search picks them up everywhere. */
 const SEARCH_DATA = [
@@ -30,7 +38,13 @@ const SEARCH_DATA = [
   { slug: "gen-z-wealth-code", title: "The Gen Z Wealth Code", cat: "money", catLabel: "Money & AI",
     terms: "gen z wealth money finance financial saving savings investing invest investment budget budgeting income creator economy crypto personal finance young 20s side hustle digital assets brand rich" },
   { slug: "sleep-like-a-ceo", title: "Sleep Like a CEO", cat: "health", catLabel: "Health & Wellbeing",
-    terms: "sleep insomnia rest bedtime night routine recovery health healthy wellbeing wellness energy focus performance productivity ceo stress brain wearable habits tired fatigue" }
+    terms: "sleep insomnia rest bedtime night routine recovery health healthy wellbeing wellness energy focus performance productivity ceo stress brain wearable habits tired fatigue" },
+  { slug: "my-husband-is-lying", title: "My Husband Is Lying", cat: "fiction", catLabel: "Fiction",
+    terms: "fiction novel story stories thriller psychological suspense mystery drama romance marriage husband wife couple lying lies liar trilogy series book reading read secrets betrayal revenge love family twist cliffhanger domestic emma jake chloe husband cheating affair second phone first" },
+  { slug: "my-wife-is-lying", title: "My Wife Is Lying", cat: "fiction", catLabel: "Fiction",
+    terms: "fiction novel story stories thriller psychological suspense mystery drama romance marriage husband wife couple lying lies liar trilogy series book reading read secrets betrayal revenge love family twist cliffhanger domestic emma jake chloe wife diary blackmail second" },
+  { slug: "we-were-both-lying", title: "We Were Both Lying", cat: "fiction", catLabel: "Fiction",
+    terms: "fiction novel story stories thriller psychological suspense mystery drama romance marriage husband wife couple lying lies liar trilogy series book reading read secrets betrayal revenge love family twist cliffhanger domestic emma jake chloe final ending finale last third" }
 ];
 
 const money = n => "$" + n.toFixed(2);
@@ -118,10 +132,11 @@ function addToCart(slug) {
   if (!PRODUCTS[slug]) return;
   let cart = getCart();
   if (cart.includes(slug)) { toast(PRODUCTS[slug].title + " is already in your cart."); return; }
-  if (slug === "bundle") {
-    cart = cart.filter(s => s === "bundle" || !BOOK_SLUGS.includes(s));
-    cart.push("bundle");
-  } else if (cart.includes("bundle")) {
+  if (PRODUCTS[slug].includes) {
+    const inc = PRODUCTS[slug].includes;
+    cart = cart.filter(s => s === slug || !inc.includes(s));
+    cart.push(slug);
+  } else if (BUNDLES.some(b => cart.includes(b) && PRODUCTS[b].includes.includes(slug))) {
     toast(PRODUCTS[slug].title + " is already included in your bundle.");
     return;
   } else {
@@ -155,8 +170,8 @@ function renderCart() {
   }
   list.innerHTML = cart.map(slug => {
     const p = PRODUCTS[slug];
-    const thumbs = slug === "bundle" ? p.includes.map(miniCover).join("") : miniCover(slug);
-    const meta = slug === "bundle" ? "4 ebooks, PDF format" : "PDF ebook, 20 pages";
+    const thumbs = p.includes ? p.includes.map(miniCover).join("") : miniCover(slug);
+    const meta = p.includes ? p.includes.length + " ebooks, PDF format" : "PDF ebook, " + (p.pages || 20) + " pages";
     return '<article class="cart-line"><div class="cart-thumbs">' + thumbs + '</div><div class="info"><h3>' + p.title +
       '</h3><div class="meta">' + meta + '</div><div class="price-row"><b>' + money(p.price) + '</b><span class="was">' + money(p.list) +
       '</span></div></div><button class="link-btn" type="button" data-remove="' + slug + '" aria-label="Remove ' + p.title + ' from cart">Remove</button></article>';
@@ -205,7 +220,8 @@ function setupShelf() {
   const title = $("[data-shelf-title]");
   const empty = $("[data-empty]");
   const grid = cards[0].parentElement;
-  const labels = { all: "New and popular", money: "Money & AI", health: "Health & Wellbeing" };
+  const labels = { all: "New and popular", money: "Money & AI", health: "Health & Wellbeing", fiction: "Fiction" };
+  const mainCards = $$("[data-card]", cards[0].closest("[data-scope]") || document);
   let cat = "all";
 
   function apply() {
@@ -221,11 +237,18 @@ function setupShelf() {
     if (query) {
       found.slice().reverse().forEach(slug => {
         const c = cards.find(x => x.dataset.slug === slug);
-        if (c) grid.prepend(c);
+        if (c) c.parentElement.prepend(c);
       });
     }
+    /* Show or hide whole sections: shelves with no visible cards, and the bundle banners */
+    $$("[data-scope]").forEach(sec => {
+      const own = $$("[data-card]", sec);
+      const inScope = cat === "all" || (sec.dataset.scope === "books" ? cat !== "fiction" : cat === "fiction");
+      sec.hidden = own.length ? !own.some(c => !c.hidden) : (!!query || !inScope);
+    });
+    const mainShown = mainCards.filter(c => !c.hidden).length;
     if (title) title.textContent = query ? "Search results" : (labels[cat] || labels.all);
-    if (count) count.textContent = shown + (shown === 1 ? " ebook" : " ebooks");
+    if (count) count.textContent = mainShown + (mainShown === 1 ? " ebook" : " ebooks");
     if (empty) {
       empty.hidden = shown !== 0;
       if (shown === 0) empty.textContent = "No ebooks match “" + query + "”. Try health, sleep, AI, money or saving.";

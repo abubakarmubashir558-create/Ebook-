@@ -1,12 +1,17 @@
 # Ebook
 
-> Ebook is a small online store selling four PDF guides on AI tools, money habits, gut health and sleep routines. Each ebook is $5.99; all four are $15.99.
+> Ebook is a small online store selling PDF ebooks: four guides on AI tools, money habits, gut health and sleep routines, and a three-book psychological thriller series, The Lying Trilogy. Each ebook is $5.99; the four guides are $15.99 together and the three fiction books are $13.99 together.
 
 ## Ebooks
 - [AI Money Machine](https://aiebook.site/ai-money-machine.html): A practical guide to exploring AI-assisted services, digital tools and your first client-ready workflow.
 - [Gut Reset](https://aiebook.site/gut-reset.html): A 30-day educational guide to the gut microbiome, food choices and everyday wellbeing habits.
 - [The Gen Z Wealth Code](https://aiebook.site/gen-z-wealth-code.html): An introduction to money habits, digital skills and ways to think about building long-term financial capability.
 - [Sleep Like a CEO](https://aiebook.site/sleep-like-a-ceo.html): An educational guide to sleep routines, common disruptors and building a more consistent wind-down.
+
+## Fiction: The Lying Trilogy
+- [My Husband Is Lying](https://aiebook.site/my-husband-is-lying.html): Book 1 of The Lying Trilogy. He proposed in the rain. He lied in the dark.
+- [My Wife Is Lying](https://aiebook.site/my-wife-is-lying.html): Book 2 of The Lying Trilogy. She picked up the knife. She lied to the police. And Jake is about to find out.
+- [We Were Both Lying](https://aiebook.site/we-were-both-lying.html): Book 3 of The Lying Trilogy, the final book. Chloe is back. And this time, she is not alone.
 
 ## Free samples
 - [AI Money Machine sample](https://aiebook.site/sample-ai-money-machine.html): real extracts from the PDF
@@ -16,6 +21,7 @@
 
 ## Store information
 - [Bundle](https://aiebook.site/bundle.html)
+- [Fiction bundle](https://aiebook.site/fiction-bundle.html)
 - [Refund Policy](https://aiebook.site/refund.html)
 - [Terms](https://aiebook.site/terms.html)
 - [Privacy](https://aiebook.site/privacy.html)

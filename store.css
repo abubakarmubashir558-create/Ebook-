@@ -504,3 +504,5 @@ h1,h2,h3{font-family:var(--display);line-height:1.12;margin:0;text-wrap:balance}
   .sample-end{flex-direction:column;align-items:flex-start}
   .sample-end .btn{width:100%}
 }
+
+.c-lie1,.c-lie2,.c-lie3{background:linear-gradient(160deg,#0A0A0A,#5a0d0d 60%,#8B0000)}
