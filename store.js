@@ -220,7 +220,7 @@ function setupShelf() {
   const title = $("[data-shelf-title]");
   const empty = $("[data-empty]");
   const grid = cards[0].parentElement;
-  const labels = { all: "New and popular", money: "Money & AI", health: "Health & Wellbeing", fiction: "Fiction" };
+  const labels = { all: "Self Improvement", self: "Self Improvement", money: "Money & AI", health: "Health & Wellbeing", fiction: "Fiction" };
   const mainCards = $$("[data-card]", cards[0].closest("[data-scope]") || document);
   let cat = "all";
 
@@ -229,7 +229,7 @@ function setupShelf() {
     const found = searchBooks(query).map(d => d.slug);
     let shown = 0;
     cards.forEach(card => {
-      const ok = found.includes(card.dataset.slug) && (cat === "all" || card.dataset.cat === cat);
+      const ok = found.includes(card.dataset.slug) && (cat === "all" || card.dataset.cat === cat || (cat === "self" && card.dataset.cat !== "fiction"));
       card.hidden = !ok;
       if (ok) shown++;
     });
@@ -242,6 +242,7 @@ function setupShelf() {
     }
     /* Show or hide whole sections: shelves with no visible cards, and the bundle banners */
     $$("[data-scope]").forEach(sec => {
+      if (sec.dataset.scope === "popular") { sec.hidden = !!query || cat !== "all"; return; }
       const own = $$("[data-card]", sec);
       const inScope = cat === "all" || (sec.dataset.scope === "books" ? cat !== "fiction" : cat === "fiction");
       sec.hidden = own.length ? !own.some(c => !c.hidden) : (!!query || !inScope);
