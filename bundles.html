@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Ebook Bundles | Ebook Store</title>
 <meta name="description" content="Save with ebook bundles: four self improvement guides for $15.99 or the three-book Lying Trilogy for $13.99.">
@@ -15,7 +16,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="store.css?v=5">
+<link rel="stylesheet" href="store.css?v=7">
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});try{if(localStorage.getItem('ebook-consent')==='granted')gtag('consent','update',{analytics_storage:'granted'});}catch(e){}</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VTQXFYX9XJ"></script>
 <script>
   window.dataLayer=window.dataLayer||[];
@@ -30,7 +32,7 @@
 <a class="logo" href="index.html"><img class="logo-mark" src="favicon.svg" alt="" width="36" height="36"><span class="logo-t">Ebook<span>.</span></span></a>
 <div class="search-wrap" data-search-wrap>
 <form class="search" action="index.html" role="search" data-search-form>
-<input type="search" name="search" aria-label="Search ebooks" placeholder="Search: health, sleep, AI, money" data-search autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search">
+<input type="search" name="search" maxlength="80" aria-label="Search ebooks" placeholder="Search: health, sleep, AI, money" data-search autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search">
 <button type="submit" aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span>Search</span></button>
 </form>
 </div>
@@ -41,12 +43,12 @@
 <div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / <span>Bundles</span></nav></div>
 <section class="wrap section"><div class="eyebrow dark">Bundle deals</div><h1 class="page-title">Bundles</h1><p class="muted" style="max-width:640px;margin:6px 0 24px">Buy a whole set in one order and the bundle discount is applied for you.</p>
 <div class="sec-head"><h2>Self Improvement bundle</h2></div><div class="bundle">
-<div class="stack" aria-hidden="true"><span class="cover c-ai cover-mini" role="img" aria-label="AI Money Machine ebook cover"><img class="cover-img" src="covers/ai-money-machine.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="cv-title">AI Money Machine</span></span><span class="cover c-gut cover-mini" role="img" aria-label="Gut Reset ebook cover"><img class="cover-img" src="covers/gut-reset.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="cv-title">Gut Reset</span></span><span class="cover c-genz cover-mini" role="img" aria-label="The Gen Z Wealth Code ebook cover"><img class="cover-img" src="covers/gen-z-wealth-code.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="cv-title">The Gen Z Wealth Code</span></span><span class="cover c-sleep cover-mini" role="img" aria-label="Sleep Like a CEO ebook cover"><img class="cover-img" src="covers/sleep-like-a-ceo.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="cv-title">Sleep Like a CEO</span></span></div>
+<div class="stack" aria-hidden="true"><span class="cover c-ai cover-mini" role="img" aria-label="AI Money Machine ebook cover"><img class="cover-img" src="covers/ai-money-machine-400.jpg" alt="" width="400" height="600" loading="lazy" decoding="async" onerror="this.remove()"><span class="cv-title">AI Money Machine</span></span><span class="cover c-gut cover-mini" role="img" aria-label="Gut Reset ebook cover"><img class="cover-img" src="covers/gut-reset-400.jpg" alt="" width="400" height="600" loading="lazy" decoding="async" onerror="this.remove()"><span class="cv-title">Gut Reset</span></span><span class="cover c-genz cover-mini" role="img" aria-label="The Gen Z Wealth Code ebook cover"><img class="cover-img" src="covers/gen-z-wealth-code-400.jpg" alt="" width="400" height="600" loading="lazy" decoding="async" onerror="this.remove()"><span class="cv-title">The Gen Z Wealth Code</span></span><span class="cover c-sleep cover-mini" role="img" aria-label="Sleep Like a CEO ebook cover"><img class="cover-img" src="covers/sleep-like-a-ceo-400.jpg" alt="" width="400" height="600" loading="lazy" decoding="async" onerror="this.remove()"><span class="cv-title">Sleep Like a CEO</span></span></div>
 <div class="bundle-copy"><h2><a href="bundle.html">All four ebooks for $15.99</a></h2><p>AI Money Machine, Gut Reset, The Gen Z Wealth Code and Sleep Like a CEO in one order. Four PDFs, one discounted price.</p></div>
 <div class="bundle-buy"><div class="price-row center"><span class="price big">$15.99</span><span class="was">$20.00</span></div><div class="save-note">Bundle discount applied</div><button class="btn btn-accent" type="button" data-add="bundle">Add to cart</button><a class="text-link" href="bundle.html">See what is included</a></div>
 </div>
 <div style="height:28px"></div><div class="sec-head"><h2>Fiction bundle</h2></div><div class="bundle">
-<div class="stack" aria-hidden="true"><span class="cover c-lie1 cover-mini" role="img" aria-label="My Husband Is Lying ebook cover"><img class="cover-img" src="covers/my-husband-is-lying.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="cv-title">My Husband Is Lying</span></span><span class="cover c-lie2 cover-mini" role="img" aria-label="My Wife Is Lying ebook cover"><img class="cover-img" src="covers/my-wife-is-lying.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="cv-title">My Wife Is Lying</span></span><span class="cover c-lie3 cover-mini" role="img" aria-label="We Were Both Lying ebook cover"><img class="cover-img" src="covers/we-were-both-lying.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="cv-title">We Were Both Lying</span></span></div>
+<div class="stack" aria-hidden="true"><span class="cover c-lie1 cover-mini" role="img" aria-label="My Husband Is Lying ebook cover"><img class="cover-img" src="covers/my-husband-is-lying-400.jpg" alt="" width="400" height="600" loading="lazy" decoding="async" onerror="this.remove()"><span class="cv-title">My Husband Is Lying</span></span><span class="cover c-lie2 cover-mini" role="img" aria-label="My Wife Is Lying ebook cover"><img class="cover-img" src="covers/my-wife-is-lying-400.jpg" alt="" width="400" height="600" loading="lazy" decoding="async" onerror="this.remove()"><span class="cv-title">My Wife Is Lying</span></span><span class="cover c-lie3 cover-mini" role="img" aria-label="We Were Both Lying ebook cover"><img class="cover-img" src="covers/we-were-both-lying-400.jpg" alt="" width="400" height="600" loading="lazy" decoding="async" onerror="this.remove()"><span class="cv-title">We Were Both Lying</span></span></div>
 <div class="bundle-copy"><h2><a href="fiction-bundle.html">The whole trilogy for $13.99</a></h2><p>My Husband Is Lying, My Wife Is Lying and We Were Both Lying in one order. Three PDFs, one discounted price.</p></div>
 <div class="bundle-buy"><div class="price-row center"><span class="price big">$13.99</span><span class="was">$17.97</span></div><div class="save-note">Bundle discount applied</div><button class="btn btn-accent" type="button" data-add="fiction-bundle">Add to cart</button><a class="text-link" href="fiction-bundle.html">See what is included</a></div>
 </div></section>
@@ -60,6 +62,6 @@
 <div class="wrap legal">© 2026 Ebook. <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a> · <a href="refund.html">Refunds</a>. The money, health and sleep guides are educational only and are not financial, medical or other professional advice; income or health outcomes are not guaranteed and results vary. The Lying Trilogy books are works of fiction.</div>
 </footer>
 <div class="toast" data-toast role="status" aria-live="polite" hidden></div>
-<script src="store.js?v=5"></script>
+<script src="store.js?v=7"></script>
 </body>
 </html>

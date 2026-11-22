@@ -154,7 +154,7 @@ function removeFromCart(slug) {
 function miniCover(slug) {
   const p = PRODUCTS[slug];
   return '<span class="cover cover-mini ' + p.cv + '" aria-hidden="true"><img class="cover-img" src="covers/' + slug +
-    '.jpg" alt="" onerror="this.remove()"><span class="cv-title">' + p.title + '</span></span>';
+    '-400.jpg" alt="" width="400" height="600" loading="lazy" decoding="async" onerror="this.remove()"><span class="cv-title">' + p.title + '</span></span>';
 }
 
 function renderCart() {
@@ -320,7 +320,7 @@ function setupSuggestions() {
       list.innerHTML = '<li class="suggest-none">No ebooks match “' + q.replace(/[<>&"]/g, "") + '”. Try health, sleep, AI or money.</li>';
     } else {
       list.innerHTML = hits.map((d, i) => '<li role="option"><a href="' + d.slug + '.html" data-i="' + i + '">' +
-        '<span class="sg-thumb"><img src="covers/' + d.slug + '.jpg" alt="" width="40" height="60"></span>' +
+        '<span class="sg-thumb"><img src="covers/' + d.slug + '-400.jpg" alt="" width="40" height="60" decoding="async"></span>' +
         '<span class="sg-text"><b>' + d.title + '</b><small>' + d.catLabel + ' · $5.99</small></span></a></li>').join("");
     }
     list.hidden = false; active = -1;
@@ -444,6 +444,43 @@ document.addEventListener("DOMContentLoaded", () => {
       var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       window.scrollTo({ top: 0, behavior: calm ? "auto" : "smooth" });
     });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", setup); else setup();
+})();
+
+
+/* ---------- Cookie consent: analytics stay off until the visitor accepts ---------- */
+(function () {
+  var KEY = "ebook-consent";
+  function read() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+  function save(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+  function setConsent(granted) {
+    if (typeof gtag === "function") gtag("consent", "update", { analytics_storage: granted ? "granted" : "denied" });
+  }
+  function build() {
+    var box = document.createElement("div");
+    box.className = "cookie"; box.setAttribute("role", "dialog"); box.setAttribute("aria-label", "Cookie choices"); box.hidden = true;
+    box.innerHTML = '<p>We use cookies for anonymous visit statistics so we can improve the store. Your cart works without them. <a href="/privacy.html#cookies">Read more</a></p>' +
+      '<div class="cookie-btns"><button type="button" class="btn btn-outline btn-sm" data-cookie="denied">Decline</button>' +
+      '<button type="button" class="btn btn-brand btn-sm" data-cookie="granted">Accept</button></div>';
+    document.body.appendChild(box);
+    box.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-cookie]"); if (!b) return;
+      var granted = b.getAttribute("data-cookie") === "granted";
+      save(granted ? "granted" : "denied"); setConsent(granted); box.hidden = true;
+    });
+    return box;
+  }
+  function setup() {
+    var box = build();
+    if (!read()) box.hidden = false;
+    var legal = document.querySelector(".legal");
+    if (legal) {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "cookie-link"; b.textContent = "Cookie settings";
+      legal.appendChild(document.createTextNode(" ")); legal.appendChild(b);
+      b.addEventListener("click", function () { box.hidden = false; });
+    }
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", setup); else setup();
 })();
