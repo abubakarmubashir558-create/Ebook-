@@ -3,11 +3,11 @@
 /* Paste each product's checkout URL (for example from Gumroad) between the quotes.
    An empty value means "checkout not connected yet". */
 const CHECKOUT_LINKS = {
-  "ai-money-machine": "",
-  "gut-reset": "",
-  "gen-z-wealth-code": "",
-  "sleep-like-a-ceo": "",
-  "bundle": "",
+  "ai-money-machine": "https://asiayasmeen.gumroad.com/l/ai-money-machine",
+  "gut-reset": "https://asiayasmeen.gumroad.com/l/gut-reset",
+  "gen-z-wealth-code": "https://asiayasmeen.gumroad.com/l/gen-z-wealth-code",
+  "sleep-like-a-ceo": "https://asiayasmeen.gumroad.com/l/sleep-like-a-ceo",
+  "bundle": "https://asiayasmeen.gumroad.com/l/4-ebook-bundle",
   "my-husband-is-lying": "",
   "my-wife-is-lying": "",
   "we-were-both-lying": "",
