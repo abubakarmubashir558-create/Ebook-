@@ -8,10 +8,10 @@ const CHECKOUT_LINKS = {
   "gen-z-wealth-code": "https://asiayasmeen.gumroad.com/l/gen-z-wealth-code",
   "sleep-like-a-ceo": "https://asiayasmeen.gumroad.com/l/sleep-like-a-ceo",
   "bundle": "https://asiayasmeen.gumroad.com/l/4-ebook-bundle",
-  "my-husband-is-lying": "",
-  "my-wife-is-lying": "",
-  "we-were-both-lying": "",
-  "fiction-bundle": ""
+  "my-husband-is-lying": "https://asiayasmeen.gumroad.com/l/my-husband-is-lying",
+  "my-wife-is-lying": "https://asiayasmeen.gumroad.com/l/my-wife-is-lying",
+  "we-were-both-lying": "https://asiayasmeen.gumroad.com/l/we-were-both-lying",
+  "fiction-bundle": "https://asiayasmeen.gumroad.com/l/lying-trilogy-bundle"
 };
 const SUPPORT_EMAIL = "Ebookbyali@gmail.com";
 const CART_KEY = "ebook-cart-v1";
