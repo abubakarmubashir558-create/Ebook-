@@ -3,15 +3,15 @@
 /* Paste each product's checkout URL (for example from Gumroad) between the quotes.
    An empty value means "checkout not connected yet". */
 const CHECKOUT_LINKS = {
-  "ai-money-machine": "https://asiayasmeen.gumroad.com/l/ai-money-machine",
-  "gut-reset": "https://asiayasmeen.gumroad.com/l/gut-reset",
-  "gen-z-wealth-code": "https://asiayasmeen.gumroad.com/l/gen-z-wealth-code",
-  "sleep-like-a-ceo": "https://asiayasmeen.gumroad.com/l/sleep-like-a-ceo",
-  "bundle": "https://asiayasmeen.gumroad.com/l/4-ebook-bundle",
-  "my-husband-is-lying": "https://asiayasmeen.gumroad.com/l/my-husband-is-lying",
-  "my-wife-is-lying": "https://asiayasmeen.gumroad.com/l/my-wife-is-lying",
-  "we-were-both-lying": "https://asiayasmeen.gumroad.com/l/we-were-both-lying",
-  "fiction-bundle": "https://asiayasmeen.gumroad.com/l/lying-trilogy-bundle"
+  "ai-money-machine": "https://ebookbyali.gumroad.com/l/ai-money-machine",
+  "gut-reset": "https://ebookbyali.gumroad.com/l/gut-reset",
+  "gen-z-wealth-code": "https://ebookbyali.gumroad.com/l/gen-z-wealth-code",
+  "sleep-like-a-ceo": "https://ebookbyali.gumroad.com/l/sleep-like-a-ceo",
+  "bundle": "https://ebookbyali.gumroad.com/l/4-ebook-bundle",
+  "my-husband-is-lying": "https://ebookbyali.gumroad.com/l/my-husband-is-lying",
+  "my-wife-is-lying": "https://ebookbyali.gumroad.com/l/my-wife-is-lying",
+  "we-were-both-lying": "https://ebookbyali.gumroad.com/l/we-were-both-lying",
+  "fiction-bundle": "https://ebookbyali.gumroad.com/l/lying-trilogy-bundle"
 };
 const SUPPORT_EMAIL = "Ebookbyali@gmail.com";
 const CART_KEY = "ebook-cart-v1";
