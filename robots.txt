@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://aiebook.site/sitemap.xml
+Sitemap: https://aiebook.site/sitemap-books.xml
